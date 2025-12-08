@@ -1,0 +1,1000 @@
+{
+	"info": {
+		"_postman_id": "eureky-api-v2",
+		"name": "Eureky API - Complete Collection",
+		"description": "Complete API endpoints for Eureky - AI-powered task and reminder management via WhatsApp. Includes authentication, lists management, list items with subtasks, reminders, calendar integrations, and WhatsApp bot endpoints.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"version": "2.0.0"
+	},
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{auth_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://dev-api.eureky.ai",
+			"type": "string",
+			"description": "API Base URL for staging environment"
+		},
+		{
+			"key": "base_url_prod",
+			"value": "https://api.eureky.ai",
+			"type": "string",
+			"description": "API Base URL for production environment"
+		},
+		{
+			"key": "auth_token",
+			"value": "your-jwt-token-here",
+			"type": "string",
+			"description": "JWT authentication token"
+		},
+		{
+			"key": "list_id",
+			"value": "your-list-id-here",
+			"type": "string"
+		},
+		{
+			"key": "item_id",
+			"value": "your-item-id-here",
+			"type": "string"
+		},
+		{
+			"key": "subtask_id",
+			"value": "your-subtask-id-here",
+			"type": "string"
+		},
+		{
+			"key": "calendar_id",
+			"value": "your-calendar-id-here",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Authentication",
+			"description": "User authentication endpoints for phone-based login with OTP verification",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"phoneNumber\": \"+1234567890\",\n  \"name\": \"John Doe\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/register",
+							"host": ["{{base_url}}"],
+							"path": ["auth", "register"]
+						},
+						"description": "Register a new user with phone number and name"
+					}
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"phoneNumber\": \"+1234567890\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": ["{{base_url}}"],
+							"path": ["auth", "login"]
+						},
+						"description": "Initiate login and send OTP to phone number"
+					}
+				},
+				{
+					"name": "Verify OTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"phoneNumber\": \"+1234567890\",\n  \"otpCode\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/verify-otp",
+							"host": ["{{base_url}}"],
+							"path": ["auth", "verify-otp"]
+						},
+						"description": "Verify OTP code and receive JWT token"
+					}
+				},
+				{
+					"name": "Resend OTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"phoneNumber\": \"+1234567890\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/resend-otp",
+							"host": ["{{base_url}}"],
+							"path": ["auth", "resend-otp"]
+						},
+						"description": "Request a new OTP code"
+					}
+				}
+			]
+		},
+		{
+			"name": "Lists Management",
+			"description": "Traditional list management - organizational containers for tasks",
+			"item": [
+				{
+					"name": "Create List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Shopping List\",\n  \"description\": \"Weekly grocery shopping list\",\n  \"metadata\": {\n    \"category\": \"shopping\",\n    \"priority\": \"medium\",\n    \"tags\": [\"groceries\", \"weekly\"]\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/lists",
+							"host": ["{{base_url}}"],
+							"path": ["lists"]
+						},
+						"description": "Create a traditional list (organizational container)"
+					}
+				},
+				{
+					"name": "Get User Lists",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/lists?limit=20&offset=0&status=ACTIVE&orderBy=createdAt&orderDirection=desc",
+							"host": ["{{base_url}}"],
+							"path": ["lists"],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20",
+									"description": "Maximum number of lists to return"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Number of lists to skip for pagination"
+								},
+								{
+									"key": "status",
+									"value": "ACTIVE",
+									"description": "Filter by list status (ACTIVE, COMPLETED, ARCHIVED, DELETED)"
+								},
+								{
+									"key": "orderBy",
+									"value": "createdAt",
+									"description": "Sort by field (name, createdAt, updatedAt)"
+								},
+								{
+									"key": "orderDirection",
+									"value": "desc",
+									"description": "Sort direction (asc/desc)"
+								}
+							]
+						},
+						"description": "Get all traditional lists for the authenticated user"
+					}
+				},
+				{
+					"name": "Get List by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/lists/{{list_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["lists", "{{list_id}}"]
+						},
+						"description": "Get a specific list by ID"
+					}
+				},
+				{
+					"name": "Update List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Updated Shopping List\",\n  \"description\": \"Updated weekly grocery shopping list\",\n  \"metadata\": {\n    \"category\": \"shopping\",\n    \"priority\": \"high\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/lists/{{list_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["lists", "{{list_id}}"]
+						},
+						"description": "Update an existing list"
+					}
+				},
+				{
+					"name": "Delete List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/lists/{{list_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["lists", "{{list_id}}"]
+						},
+						"description": "Delete a list"
+					}
+				}
+			]
+		},
+		{
+			"name": "List Items Management",
+			"description": "List items can be tasks, reminders, or list items with subtasks. The WhatsApp bot creates list_items with subtasks instead of traditional lists.",
+			"item": [
+				{
+					"name": "Get All User Items",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/list-items?limit=50&offset=0&isCompleted=false&priority=medium&orderBy=createdAt&orderDirection=desc&includeSubtasks=true",
+							"host": ["{{base_url}}"],
+							"path": ["list-items"],
+							"query": [
+								{
+									"key": "limit",
+									"value": "50"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "isCompleted",
+									"value": "false",
+									"description": "Filter by completion status"
+								},
+								{
+									"key": "priority",
+									"value": "medium",
+									"description": "Filter by priority (low, medium, high)"
+								},
+								{
+									"key": "orderBy",
+									"value": "createdAt"
+								},
+								{
+									"key": "orderDirection",
+									"value": "desc"
+								},
+								{
+									"key": "includeSubtasks",
+									"value": "true",
+									"description": "Include subtasks in response"
+								}
+							]
+						},
+						"description": "Get all list items across all lists for the user"
+					}
+				},
+				{
+					"name": "Add Item to Default List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"Buy groceries\",\n  \"description\": \"Weekly grocery shopping\",\n  \"priority\": \"medium\",\n  \"metadata\": {\n    \"category\": \"shopping\",\n    \"originalText\": \"Buy groceries\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/list-items",
+							"host": ["{{base_url}}"],
+							"path": ["list-items"]
+						},
+						"description": "Create a regular item in the user's default list"
+					}
+				},
+				{
+					"name": "Add Reminder to Default List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"Call dentist for appointment\",\n  \"description\": \"Schedule annual checkup\",\n  \"priority\": \"high\",\n  \"scheduledAt\": \"2025-12-31T15:30:00.000Z\",\n  \"metadata\": {\n    \"originalText\": \"Remind me to call dentist tomorrow at 3:30 PM\",\n    \"timezone\": \"America/Bogota\",\n    \"category\": \"health\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/list-items",
+							"host": ["{{base_url}}"],
+							"path": ["list-items"]
+						},
+						"description": "Create a reminder in the user's default list. Include 'scheduledAt' to make it a reminder."
+					}
+				},
+				{
+					"name": "Add Item to Specific List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"Buy milk\",\n  \"description\": \"Get 2% organic milk\",\n  \"priority\": \"medium\",\n  \"metadata\": {\n    \"category\": \"dairy\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/list-items/by-list/{{list_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["list-items", "by-list", "{{list_id}}"]
+						},
+						"description": "Add an item to a specific list"
+					}
+				},
+				{
+					"name": "Get Items by List ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/list-items/by-list/{{list_id}}?limit=50&includeSubtasks=true",
+							"host": ["{{base_url}}"],
+							"path": ["list-items", "by-list", "{{list_id}}"],
+							"query": [
+								{
+									"key": "limit",
+									"value": "50"
+								},
+								{
+									"key": "includeSubtasks",
+									"value": "true",
+									"description": "Include subtasks for each item"
+								}
+							]
+						},
+						"description": "Get all items for a specific list, optionally with subtasks"
+					}
+				},
+				{
+					"name": "Update List Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"Updated: Buy organic milk\",\n  \"priority\": \"high\",\n  \"scheduledAt\": \"2025-12-31T16:00:00.000Z\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/list-items/{{item_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["list-items", "{{item_id}}"]
+						},
+						"description": "Update an existing list item or reminder"
+					}
+				},
+				{
+					"name": "Toggle Item Completion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/list-items/{{item_id}}/toggle",
+							"host": ["{{base_url}}"],
+							"path": ["list-items", "{{item_id}}", "toggle"]
+						},
+						"description": "Toggle the completion status of a list item"
+					}
+				},
+				{
+					"name": "Delete List Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/list-items/{{item_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["list-items", "{{item_id}}"]
+						},
+						"description": "Delete a list item"
+					}
+				}
+			]
+		},
+		{
+			"name": "Subtasks Management",
+			"description": "Subtasks are sub-elements of list items. The WhatsApp bot creates list_items with subtasks for multi-item lists.",
+			"item": [
+				{
+					"name": "Get Subtasks for Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/list-items/{{item_id}}/subtasks",
+							"host": ["{{base_url}}"],
+							"path": ["list-items", "{{item_id}}", "subtasks"]
+						},
+						"description": "Get all subtasks for a specific list item"
+					}
+				},
+				{
+					"name": "Create Subtask",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"tomato\",\n  \"order\": \"1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/list-items/{{item_id}}/subtasks",
+							"host": ["{{base_url}}"],
+							"path": ["list-items", "{{item_id}}", "subtasks"]
+						},
+						"description": "Add a new subtask to a list item"
+					}
+				},
+				{
+					"name": "Update Subtask",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"organic tomato\",\n  \"isCompleted\": false\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/list-items/{{item_id}}/subtasks/{{subtask_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["list-items", "{{item_id}}", "subtasks", "{{subtask_id}}"]
+						},
+						"description": "Update an existing subtask"
+					}
+				},
+				{
+					"name": "Toggle Subtask Completion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/list-items/{{item_id}}/subtasks/{{subtask_id}}/toggle",
+							"host": ["{{base_url}}"],
+							"path": ["list-items", "{{item_id}}", "subtasks", "{{subtask_id}}", "toggle"]
+						},
+						"description": "Toggle the completion status of a subtask"
+					}
+				},
+				{
+					"name": "Delete Subtask",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/list-items/{{item_id}}/subtasks/{{subtask_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["list-items", "{{item_id}}", "subtasks", "{{subtask_id}}"]
+						},
+						"description": "Delete a subtask"
+					}
+				}
+			]
+		},
+		{
+			"name": "Reminders (System Endpoints)",
+			"description": "System endpoints for reminder processing and status management",
+			"item": [
+				{
+					"name": "Get Due Reminders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/list-items/reminders/due?beforeDate=2025-12-31T23:59:59.999Z&limit=100&includeOverdue=true",
+							"host": ["{{base_url}}"],
+							"path": ["list-items", "reminders", "due"],
+							"query": [
+								{
+									"key": "beforeDate",
+									"value": "2025-12-31T23:59:59.999Z",
+									"description": "Get reminders due before this date"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "includeOverdue",
+									"value": "true"
+								}
+							]
+						},
+						"description": "Get all due reminders across all users (system endpoint)"
+					}
+				},
+				{
+					"name": "Update Reminder Status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"SENT\",\n  \"sentAt\": \"2025-01-05T15:30:00.000Z\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/list-items/{{item_id}}/reminder-status",
+							"host": ["{{base_url}}"],
+							"path": ["list-items", "{{item_id}}", "reminder-status"]
+						},
+						"description": "Update the reminder status (SENT, FAILED, CANCELLED)"
+					}
+				}
+			]
+		},
+		{
+			"name": "WhatsApp Webhook",
+			"description": "WhatsApp Business API webhook endpoints for message receiving and verification",
+			"item": [
+				{
+					"name": "Webhook Verification (GET)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/whatsapp/webhook?hub.mode=subscribe&hub.verify_token=your-webhook-token&hub.challenge=challenge-string",
+							"host": ["{{base_url}}"],
+							"path": ["whatsapp", "webhook"],
+							"query": [
+								{
+									"key": "hub.mode",
+									"value": "subscribe"
+								},
+								{
+									"key": "hub.verify_token",
+									"value": "your-webhook-token"
+								},
+								{
+									"key": "hub.challenge",
+									"value": "challenge-string"
+								}
+							]
+						},
+						"description": "Webhook verification endpoint for WhatsApp Business API setup"
+					}
+				},
+				{
+					"name": "Receive WhatsApp Message (POST)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"object\": \"whatsapp_business_account\",\n  \"entry\": [\n    {\n      \"id\": \"WHATSAPP_BUSINESS_ACCOUNT_ID\",\n      \"changes\": [\n        {\n          \"value\": {\n            \"messaging_product\": \"whatsapp\",\n            \"metadata\": {\n              \"display_phone_number\": \"PHONE_NUMBER\",\n              \"phone_number_id\": \"PHONE_NUMBER_ID\"\n            },\n            \"messages\": [\n              {\n                \"from\": \"SENDER_PHONE_NUMBER\",\n                \"id\": \"MESSAGE_ID\",\n                \"timestamp\": \"TIMESTAMP\",\n                \"type\": \"text\",\n                \"text\": {\n                  \"body\": \"recuérdame mañana comprar leche\"\n                }\n              }\n            ]\n          }\n        }\n      ]\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/whatsapp/webhook",
+							"host": ["{{base_url}}"],
+							"path": ["whatsapp", "webhook"]
+						},
+						"description": "Receives incoming WhatsApp messages and queues them for processing"
+					}
+				}
+			]
+		},
+		{
+			"name": "Calendars Management",
+			"description": "Google Calendar integration endpoints",
+			"item": [
+				{
+					"name": "Get User Calendars",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/calendars?limit=20&isActive=true",
+							"host": ["{{base_url}}"],
+							"path": ["calendars"],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "isActive",
+									"value": "true"
+								}
+							]
+						},
+						"description": "Get all calendars for the authenticated user"
+					}
+				},
+				{
+					"name": "Get OAuth Authorization URL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/calendar-oauth/google/authorize",
+							"host": ["{{base_url}}"],
+							"path": ["calendar-oauth", "google", "authorize"]
+						},
+						"description": "Get the Google OAuth authorization URL"
+					}
+				},
+				{
+					"name": "OAuth Callback",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"AUTHORIZATION_CODE_FROM_GOOGLE\",\n  \"state\": \"STATE_TOKEN\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/calendar-oauth/google/callback",
+							"host": ["{{base_url}}"],
+							"path": ["calendar-oauth", "google", "callback"]
+						},
+						"description": "Handle OAuth callback and exchange code for tokens"
+					}
+				},
+				{
+					"name": "Sync All Calendars",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/calendar-oauth/sync",
+							"host": ["{{base_url}}"],
+							"path": ["calendar-oauth", "sync"]
+						},
+						"description": "Sync all active calendars for the user"
+					}
+				},
+				{
+					"name": "Disconnect Google Calendar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/calendar-oauth/google/disconnect",
+							"host": ["{{base_url}}"],
+							"path": ["calendar-oauth", "google", "disconnect"]
+						},
+						"description": "Revoke Google Calendar access"
+					}
+				}
+			]
+		},
+		{
+			"name": "Health Checks",
+			"description": "Service health check endpoints",
+			"item": [
+				{
+					"name": "Main Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/health",
+							"host": ["{{base_url}}"],
+							"path": ["health"]
+						},
+						"description": "Check if the API service is healthy"
+					}
+				}
+			]
+		}
+	]
+}

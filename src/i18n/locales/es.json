@@ -1,0 +1,222 @@
+{
+  "nav": {
+    "features": "Funcionalidades",
+    "pricing": "Precios",
+    "howWorks": "Cómo funciona",
+    "reviews": "Testimonios",
+    "login": "Iniciar sesión"
+  },
+  "hero": {
+    "title": "Más que recordatorios, tu coach de metas",
+    "benefit1": "Ahorra hasta 3 horas a la semana.",
+    "benefit2": "100% de tus ideas al instante con notas de voz.",
+    "benefit3": "PDFs en decisiones en menos de 90 segundos.",
+    "benefit4": "0 citas olvidadas, garantizado por tu coach 24/7.",
+    "cta": "Prueba gratis"
+  },
+  "features": {
+    "subtitle": "Funcionalidades",
+    "headline": "<span class=\"text-[#6A52CC]\">eureky.ai</span> es el socio que te impulsa hacia tus metas.",
+    "feature1": {
+      "title": "Tareas por voz en WhatsApp",
+      "text": "Habla y listo, tus notas de voz se convierten en tareas con recordatorios en WhatsApp para que nada se te escape."
+    },
+    "feature2": {
+      "title": "Plan diario inteligente",
+      "text": "Eureky arma tu agenda con prioridades y sincroniza Google, Apple o Microsoft Calendar. Te dice qué hacer ahora y cuándo."
+    },
+    "feature3": {
+      "title": "Empuje inteligente + Reviews",
+      "text": "Si pospones, Eureky te reubica la tarea, te motiva y muestra tu progreso en reviews diarios, semanales o mensuales."
+    },
+    "feature4": {
+      "title": "Captura voz, texto o imágenes",
+      "text": "Agrega tareas por texto, voz o con fotos y documentos; Eureky lo entiende y lo agenda al instante."
+    }
+  },
+  "dashboard": {
+    "title": "Tus tareas y avances<br />en un solo panel.",
+    "cardTitle": "Tareas, avances y rachas",
+    "cardDescription": "El dashboard de Eureky muestra tus tareas, avances y rachas de forma simple y visual."
+  },
+  "pricing": {
+    "title": "Planes para todos.",
+    "trial": "¡Pruébalo sin pagar por 7 días!",
+    "monthly": "Mensual",
+    "annual": "Anual",
+    "perMonth": "/mes",
+    "oneTime": "Pago único",
+    "mostPopular": "MÁS POPULAR",
+    "plans": {
+      "junior": {
+        "name": "Plan Junior",
+        "cta": "Prueba gratis"
+      },
+      "pro": {
+        "name": "Plan Pro",
+        "cta": "Prueba gratis"
+      },
+      "lifetime": {
+        "name": "Plan Lifetime",
+        "cta": "Empieza ahora"
+      }
+    },
+    "features": {
+      "whatsapp247": "Todo por WhatsApp 24/7",
+      "reminders": "Recordatorios puntuales y recurrentes.",
+      "friendReminders150": "150 Recordatorios a amigos.",
+      "friendRemindersUnlimited": "Recordatorios a amigos ilimitado.",
+      "lists": "Listas y tareas (to-dos).",
+      "voiceCapture": "Captura por voz → tarea.",
+      "languages": "+150 idiomas (detección automática)",
+      "calendarSync": "Sincronización con multicalendarios.",
+      "copilot": "Copiloto IA (Gemini/ChatGPT).",
+      "prioritization": "Priorización y agenda sugerida (IA).",
+      "reschedule": "Si aplazas, sugiere y reprograma.",
+      "dashboard": "Dashboard Avanzado.",
+      "imageAnalysis": "Análisis de imágenes ilimitado.",
+      "weeklySummary": "Resumen semanal con insights.",
+      "premiumSupport": "Soporte Premium.",
+      "allProFeatures": "Todas las funciones del Plan Pro",
+      "noSubscriptions": "Sin suscripciones ni pagos recurrentes.",
+      "prioritySupport": "Prioridad en Soporte Premium.",
+      "futureFeatures": "Acceso a futuras funciones."
+    }
+  },
+  "howWorks": {
+    "title": "¿Cómo funciona?",
+    "step1": {
+      "title": "Añade a Eureky.ai a WhatsApp.",
+      "description": "Chatea con tu coach y empieza tu camino al éxito."
+    },
+    "step2": {
+      "title": "Dile tu meta.",
+      "description": "Explícale lo que quieres conseguir, agendar o recordar. Tu coach te escuchará y te ayudará a planificarlo."
+    },
+    "step3": {
+      "title": "Enfócate en tu éxito.",
+      "description": "Deja que Eureky.ai se encargue de la planificación. Tú solo concéntrate en cumplir tus objetivos."
+    }
+  },
+  "testimonials": {
+    "title": "Ellos también aman <1>eureky.ai</1>",
+    "items": {
+      "1": {
+        "title": "¡Súper recomendado!",
+        "text": "Me ha ayudado a no fallar en mis compromisos y a mantener el rumbo hacia mis metas. Lo uso para todo, hasta recordarme que compre flores. ¡Estoy logrando mis objetivos como nunca antes!",
+        "author": "@carlamartinez"
+      },
+      "2": {
+        "title": "¡Súper recomendado!",
+        "text": "Me ha ayudado a no fallar en mis compromisos y a mantener el rumbo hacia mis metas. Lo uso para todo, hasta recordarme que compre flores. ¡Estoy logrando mis objetivos como nunca antes!",
+        "author": "@lucartv"
+      },
+      "3": {
+        "title": "¡Súper recomendado!",
+        "text": "Me ha ayudado a no fallar en mis compromisos y a mantener el rumbo hacia mis metas. Lo uso para todo, hasta recordarme que compre flores. ¡Estoy logrando mis objetivos como nunca antes!",
+        "author": "@fabriclavo"
+      }
+    }
+  },
+  "faq": {
+    "title": "¿Tienes preguntas?",
+    "items": {
+      "1": {
+        "question": "¿Qué es Eureky.ai y cómo me ayuda a alcanzar mis metas?",
+        "answer": "Eureky.ai es tu asistente personal de productividad que te ayuda a organizar tus tareas, establecer recordatorios y alcanzar tus objetivos de manera eficiente."
+      },
+      "2": {
+        "question": "¿Puedo programar recordatorios que se repitan?",
+        "answer": "Sí, puedes programar recordatorios recurrentes diarios, semanales o mensuales según tus necesidades."
+      },
+      "3": {
+        "question": "¿Qué funcionalidades únicas tiene Eureky.ai?",
+        "answer": "Eureky.ai ofrece funcionalidades como captura por voz, análisis de imágenes, sincronización con calendarios, copiloto IA y mucho más."
+      },
+      "4": {
+        "question": "¿Mi información está segura?",
+        "answer": "Sí, tu información está completamente segura. Utilizamos encriptación de extremo a extremo y nunca compartimos tus datos con terceros."
+      }
+    }
+  },
+  "footer": {
+    "contact": "contacto@eureky.ia",
+    "copyright": "© {{year}} Eureky",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "facebook": "#",
+    "instagram": "#"
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "intro": "Nuestra dirección web es:",
+    "comments": {
+      "title": "Comentarios",
+      "p1": "Cuando los visitantes dejan comentarios en el sitio, recopilamos los datos que se muestran en el formulario de comentarios, así como la dirección IP del visitante y la cadena del agente de usuario del navegador para ayudar en la detección de spam.",
+      "p2": "Se puede proporcionar una cadena anónima creada a partir de su dirección de correo electrónico (también llamada hash) al servicio Gravatar para ver si lo está usando. La política de privacidad del servicio Gravatar está disponible aquí: https://automattic.com/privacy/. Después de la aprobación de su comentario, su imagen de perfil es visible al público en el contexto de su comentario."
+    },
+    "media": {
+      "title": "Medios",
+      "p1": "Si sube imágenes al sitio, debe evitar subir imágenes con datos de ubicación (GPS EXIF) incluidos. Los visitantes del sitio web pueden descargar y extraer cualquier dato de ubicación de las imágenes en el sitio web."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "p1": "Si deja un comentario en nuestro sitio, puede optar por guardar su nombre, dirección de correo electrónico y sitio web en cookies. Esto es para su conveniencia, para que no tenga que completar sus datos nuevamente cuando deje otro comentario. Estas cookies durarán un año.",
+      "p2": "Si tiene una cuenta e inicia sesión en este sitio, estableceremos una cookie temporal para determinar si su navegador acepta cookies. Esta cookie no contiene datos personales y se elimina cuando cierra su navegador.",
+      "p3": "Cuando inicie sesión, también estableceremos varias cookies para almacenar su información de inicio de sesión y opciones de visualización de pantalla. Las cookies de inicio de sesión duran dos días, y las cookies de opciones de pantalla duran un año. Si selecciona \"Recordarme\", su inicio de sesión durará dos semanas. Si cierra sesión de su cuenta, se eliminarán las cookies de acceso.",
+      "p4": "Si edita o publica un artículo, se almacenará una cookie adicional en su navegador. Esta cookie no incluye datos personales y simplemente indica el ID del artículo que acaba de editar. Caduca después de 1 día."
+    },
+    "embeddedContent": {
+      "title": "Contenido incrustado de otros sitios web",
+      "p1": "Los artículos en este sitio pueden incluir contenido incrustado (por ejemplo, videos, imágenes, artículos, etc.). El contenido incrustado de otros sitios web se comporta exactamente de la misma manera que si el visitante hubiera visitado el otro sitio web.",
+      "p2": "Estos sitios pueden recopilar datos sobre usted, usar cookies, incrustar seguimiento adicional de terceros y monitorear su interacción con ese contenido incrustado, incluido el seguimiento de su interacción con el contenido incrustado si tiene una cuenta y ha iniciado sesión en ese sitio."
+    },
+    "sharing": {
+      "title": "Con quién compartimos su información",
+      "p1": "Si solicita un restablecimiento de contraseña, su dirección IP se incluirá en el correo electrónico de restablecimiento."
+    },
+    "retention": {
+      "title": "Cuánto tiempo conservamos su información",
+      "p1": "Si deja un comentario, el comentario y sus metadatos se conservan indefinidamente. Esto es para que podamos reconocer y aprobar comentarios sucesivos automáticamente, en lugar de mantenerlos en una cola de moderación.",
+      "p2": "Para los usuarios que se registran en nuestro sitio (si los hay), también almacenamos la información personal que proporcionan en su perfil de usuario. Todos los usuarios pueden ver, editar o eliminar su información personal en cualquier momento (excepto que no pueden cambiar su nombre de usuario). Los administradores del sitio también pueden ver y editar esa información."
+    },
+    "rights": {
+      "title": "Qué derechos tiene sobre sus datos",
+      "p1": "Si tiene una cuenta o ha dejado comentarios en este sitio, puede solicitar recibir un archivo de exportación de los datos personales que tenemos sobre usted, incluidos los datos que nos ha proporcionado. También puede solicitar que eliminemos cualquier dato personal que tengamos sobre usted. Esto no incluye ningún dato que estemos obligados a conservar con fines administrativos, legales o de seguridad."
+    },
+    "dataSent": {
+      "title": "Dónde se envían sus datos",
+      "p1": "Los comentarios de los visitantes pueden ser revisados por un servicio automático de detección de spam."
+    }
+  },
+  "terms": {
+    "title": "Términos y Condiciones",
+    "intro": "Este sitio web es propiedad y está operado por EUREKY AI LLC. Una Compañía de Responsabilidad Limitada de Delaware. En todo el sitio, los términos \"nosotros\", \"nos\" y \"nuestro\" se refieren a EUREKY AI LLC. Este sitio web, que incluye toda la información, herramientas y servicios disponibles desde este sitio para usted, el usuario, está condicionado a su aceptación de todos los términos, condiciones, políticas y avisos declarados aquí. Al visitar nuestro sitio y/o comprar algo de nosotros, participa en nuestro \"Servicio\" y acepta estar sujeto a los siguientes términos y condiciones (\"Términos de Servicio\", \"Términos\"), incluidos los términos y condiciones adicionales y las políticas a las que se hace referencia aquí y/o disponibles mediante hipervínculo. Estos Términos de Servicio se aplican a todos los usuarios del sitio, incluidos, entre otros, los usuarios que son navegadores, proveedores, clientes, comerciantes y/o contribuyentes de contenido. Lea estos Términos de Servicio cuidadosamente antes de acceder o usar nuestro sitio web. Al acceder o usar cualquier parte del sitio, acepta estar sujeto a estos Términos de Servicio. Si no está de acuerdo con todos los términos y condiciones de este acuerdo, no puede acceder al sitio web ni usar ningún servicio. Si estos Términos de Servicio se consideran una oferta, la aceptación se limita expresamente a estos Términos de Servicio. Cualquier nueva función o herramienta que se agregue a la tienda actual también estará sujeta a los Términos de Servicio. Puede revisar la versión más actual de los Términos de Servicio en cualquier momento en esta página. Nos reservamos el derecho de actualizar, cambiar o reemplazar cualquier parte de estos Términos de Servicio mediante la publicación de actualizaciones y/o cambios en nuestro sitio web. Es su responsabilidad revisar esta página periódicamente para ver los cambios. Su uso continuo o acceso al sitio web después de la publicación de cualquier cambio constituye la aceptación de esos cambios.",
+    "section1": {
+      "title": "SECCIÓN 1 – TÉRMINOS DE LA TIENDA EN LÍNEA",
+      "content": "Al aceptar estos Términos de Servicio, declara que tiene al menos la mayoría de edad en su estado o provincia de residencia, o que tiene la mayoría de edad en su estado o provincia de residencia y nos ha dado su consentimiento para permitir que cualquiera de sus dependientes menores use este sitio. No puede usar nuestros productos para ningún propósito ilegal o no autorizado ni puede, en el uso del Servicio, violar ninguna ley en su jurisdicción (incluidas, entre otras, las leyes de derechos de autor). No debe transmitir gusanos o virus o cualquier código de naturaleza destructiva. Una violación o incumplimiento de cualquiera de los Términos resultará en la terminación inmediata de sus Servicios."
+    },
+    "section2": {
+      "title": "SECCIÓN 2 – CONDICIONES GENERALES",
+      "content": "Nos reservamos el derecho de rechazar el servicio a cualquier persona por cualquier motivo en cualquier momento. Usted comprende que su contenido (sin incluir información de tarjetas de crédito), puede transferirse sin cifrar e involucrar (a) transmisiones a través de varias redes; y (b) cambios para adaptarse y adaptarse a los requisitos técnicos de las redes o dispositivos de conexión. La información de la tarjeta de crédito siempre se cifra durante la transferencia a través de redes. Acepta no reproducir, duplicar, copiar, vender, revender o explotar ninguna parte del Servicio, uso del Servicio o acceso al Servicio o cualquier contacto en el sitio web a través del cual se proporciona el servicio, sin el permiso expreso por escrito de nosotros. Los encabezados utilizados en este acuerdo se incluyen solo por conveniencia y no limitarán ni afectarán de otro modo estos Términos."
+    },
+    "contactEmail": "contacto@eureky.ia",
+    "contactPrompt": "Las preguntas sobre los Términos de Servicio deben enviarse a:"
+  },
+  "next7Days": {
+    "title": "Próximos 7 Días",
+    "subtitle": "Vista semanal de tus recordatorios",
+    "startFromToday": "Comenzar desde hoy",
+    "startFromMonday": "Comenzar desde lunes",
+    "noReminders": "No hay recordatorios para este día",
+    "today": "Hoy",
+    "monday": "Lunes",
+    "tuesday": "Martes",
+    "wednesday": "Miércoles",
+    "thursday": "Jueves",
+    "friday": "Viernes",
+    "saturday": "Sábado",
+    "sunday": "Domingo",
+    "overdueReminders": "Recordatorios vencidos"
+  }
+}

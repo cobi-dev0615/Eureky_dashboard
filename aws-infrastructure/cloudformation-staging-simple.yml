@@ -1,0 +1,63 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Eureky Staging Infrastructure - S3 Bucket Only (Fast Deploy)'
+
+Parameters:
+  DomainName:
+    Type: String
+    Default: 'dev.eureky.ai'
+    Description: 'The domain name for the staging environment'
+
+Resources:
+  # S3 Bucket for hosting static files
+  StagingBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub 'eureky-staging-bucket-${AWS::AccountId}'
+      WebsiteConfiguration:
+        IndexDocument: 'index.html'
+        ErrorDocument: 'index.html'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      VersioningConfiguration:
+        Status: Enabled
+
+  # S3 Bucket Policy for public access (temporary for testing)
+  StagingBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref StagingBucket
+      PolicyDocument:
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: '*'
+            Action: 's3:GetObject'
+            Resource: !Sub '${StagingBucket}/*'
+
+Outputs:
+  BucketName:
+    Description: 'Name of the S3 bucket'
+    Value: !Ref StagingBucket
+    Export:
+      Name: !Sub '${AWS::StackName}-BucketName'
+
+  DistributionId:
+    Description: 'CloudFront Distribution ID (placeholder)'
+    Value: 'PLACEHOLDER'
+    Export:
+      Name: !Sub '${AWS::StackName}-DistributionId'
+
+  DistributionDomainName:
+    Description: 'S3 Website Domain Name'
+    Value: !GetAtt StagingBucket.WebsiteURL
+    Export:
+      Name: !Sub '${AWS::StackName}-DistributionDomainName'
+
+  WebsiteURL:
+    Description: 'Website URL'
+    Value: !GetAtt StagingBucket.WebsiteURL
+    Export:
+      Name: !Sub '${AWS::StackName}-WebsiteURL'

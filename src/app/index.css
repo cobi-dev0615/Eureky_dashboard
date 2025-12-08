@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+/* Default Font */
+* {
+  font-family: 'Figtree', sans-serif;
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 236 100% 98%;
+    --foreground: 220 57% 5%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 57% 5%;
+    --checkbox-border-color: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 57% 5%;
+
+    --primary: 270 80% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 30% 95%;
+    --secondary-foreground: 220 57% 5%;
+
+    --muted: 220 30% 96%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 190 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 270 80% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 57% 5%;
+    --sidebar-primary: 270 80% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 30% 92%;
+    --sidebar-accent-foreground: 220 57% 5%;
+    --sidebar-border: 220 20% 90%;
+    --sidebar-ring: 270 80% 60%;
+    --sidebar-button-active-background: 236 100% 98%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(270 80% 60%), hsl(280 75% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(190 100% 50%), hsl(200 90% 55%));
+
+    --trigger-background: 238 21% 84%;
+    --trigger-list-background: 0 0% 100%;
+
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Task and dropdown colors - Light mode */
+    --task-bg: #ffffff;
+    --dropdown-bg: #ffffff;
+  }
+
+  /* Desktop Light mode */
+  @media (min-width: 768px) {
+    :root {
+      --task-bg: #f5f5f5;
+      --dropdown-bg: #f5f5f5;
+    }
+  }
+
+  .dark {
+    --background: 222 57% 5%;
+    --foreground: 0 0% 100%;
+
+    --card: 220 30% 9%;
+    --card-foreground: 0 0% 100%;
+    --checkbox-border-color: 0 0% 100%;
+
+    --popover: 220 30% 9%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 250 73% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 30% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 30% 20%;
+    --muted-foreground: 236 11% 82%;
+
+    --accent: 190 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 15% 19%;
+    --input: 220 30% 18%;
+    --ring: 250 73% 57%;
+
+    --sidebar-background: 220, 38%, 9%;
+    --sidebar-foreground: 236 11% 82%;
+    --sidebar-primary: 250 73% 57%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 35% 12%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 15% 19%;
+    --sidebar-ring: 250 73% 57%;
+    --sidebar-button-active-background: 222 57% 5%;
+
+    --trigger-background: 220 38% 18%;
+
+    /* Task and dropdown colors - Dark mode mobile */
+    --task-bg: #0F1521;
+    --dropdown-bg: #0F1521;
+  }
+
+  /* Desktop Dark mode */
+  @media (min-width: 768px) {
+    .dark {
+      --task-bg: #1C273E;
+      --dropdown-bg: #0F1521;
+    }
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+
+    .bg-sidebar {
+      background-color: hsl(var(--sidebar-background));
+    }
+
+    .bg-card {
+      background-color: hsl(var(--card));
+    }
+
+    .bg-trigger {
+      background-color: hsl(var(--trigger-background));
+    }
+
+    .bg-trigger-list {
+      color: hsl(var(--trigger-list-background));
+    }
+
+    .sidebar-button-active {
+
+      color: hsl(var(--sidebar-primary-foreground));
+    }
+
+    .sidebar-button-active {
+      background-color: hsl(var(--sidebar-button-active-background));
+      color: hsl(var(--sidebar-button-active-color));
+    }
+
+    color: hsl(var(--foreground));
+    font-family: 'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  }
+
+  /* SVG icon filters for theme adaptation */
+  /* Light mode: Make SVG icons dark (#050912 - very dark) */
+  :root img.svg-icon {
+    filter: brightness(0) saturate(100%);
+  }
+
+  .checkbox-border-color {
+    border-color: hsl(var(--checkbox-border-color));
+  }
+
+  .dark img.svg-icon {
+    filter: brightness(0) saturate(100%) invert(100%);
+  }
+
+  /* Preserve colors for logos */
+  /* img.svg-logo,
+  img[alt="Logo"],
+  img[alt="eureky"] {
+    filter: none !important;
+  } */
+}
+
+.sidebar-button-hover:hover:not(.sidebar-button-active) {
+  background-color: #424242 !important;
+}
+
+.sidebar-nav-button {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  ;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #1C273E;
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #1C273E;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #1C273E transparent;
+}

@@ -1,0 +1,222 @@
+{
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "howWorks": "How it works?",
+    "reviews": "Reviews",
+    "login": "Login"
+  },
+  "hero": {
+    "title": "More than reminders, your goals coach",
+    "benefit1": "Save up to 3 hours per week.",
+    "benefit2": "100% of your ideas instantly with voice notes.",
+    "benefit3": "PDFs into decisions in less than 90 seconds.",
+    "benefit4": "0 missed appointments, guaranteed by your 24/7 coach.",
+    "cta": "Try for free"
+  },
+  "features": {
+    "subtitle": "Features",
+    "headline": "<span class=\"text-[#6A52CC]\">eureky.ai</span> is the partner that drives you towards your goals.",
+    "feature1": {
+      "title": "Voice tasks on WhatsApp",
+      "text": "Speak and done, your voice notes become tasks with WhatsApp reminders so you don't miss a thing."
+    },
+    "feature2": {
+      "title": "Smart daily plan",
+      "text": "Eureky builds your agenda with priorities and syncs with Google, Apple or Microsoft Calendar. It tells you what to do now and when."
+    },
+    "feature3": {
+      "title": "Smart nudges + Reviews",
+      "text": "If you postpone, Eureky reschedules the task, motivates you and shows your progress in daily, weekly or monthly reviews."
+    },
+    "feature4": {
+      "title": "Capture voice, text or images",
+      "text": "Add tasks by text, voice or with photos and documents; Eureky understands it and schedules it instantly."
+    }
+  },
+  "dashboard": {
+    "title": "Your tasks and progress<br />in one panel.",
+    "cardTitle": "Tasks, progress and streaks",
+    "cardDescription": "Eureky's dashboard shows your tasks, progress and streaks in a simple and visual way."
+  },
+  "pricing": {
+    "title": "Plans for everyone.",
+    "trial": "Try it free for 7 days!",
+    "monthly": "Monthly",
+    "annual": "Annual",
+    "perMonth": "/mo",
+    "oneTime": "One-time payment",
+    "mostPopular": "MOST POPULAR",
+    "plans": {
+      "junior": {
+        "name": "Junior Plan",
+        "cta": "Try for free"
+      },
+      "pro": {
+        "name": "Pro Plan",
+        "cta": "Try for free"
+      },
+      "lifetime": {
+        "name": "Lifetime Plan",
+        "cta": "Start now"
+      }
+    },
+    "features": {
+      "whatsapp247": "Everything on WhatsApp 24/7",
+      "reminders": "One-time and recurring reminders.",
+      "friendReminders150": "150 Friend reminders.",
+      "friendRemindersUnlimited": "Unlimited friend reminders.",
+      "lists": "Lists and to-dos.",
+      "voiceCapture": "Voice capture → task.",
+      "languages": "+150 languages (auto-detection)",
+      "calendarSync": "Multi-calendar synchronization.",
+      "copilot": "AI Copilot (Gemini/ChatGPT).",
+      "prioritization": "Prioritization and suggested agenda (AI).",
+      "reschedule": "If you postpone, suggests and reschedules.",
+      "dashboard": "Advanced Dashboard.",
+      "imageAnalysis": "Unlimited image analysis.",
+      "weeklySummary": "Weekly summary with insights.",
+      "premiumSupport": "Premium Support.",
+      "allProFeatures": "All Pro Plan features",
+      "noSubscriptions": "No subscriptions or recurring payments.",
+      "prioritySupport": "Priority Premium Support.",
+      "futureFeatures": "Access to future features."
+    }
+  },
+  "howWorks": {
+    "title": "How does it work?",
+    "step1": {
+      "title": "Add Eureky.ai to WhatsApp.",
+      "description": "Chat with your coach and start your path to success."
+    },
+    "step2": {
+      "title": "Tell it your goal.",
+      "description": "Explain what you want to achieve, schedule or remember. Your coach will listen and help you plan it."
+    },
+    "step3": {
+      "title": "Focus on your success.",
+      "description": "Let Eureky.ai handle the planning. You just focus on achieving your goals."
+    }
+  },
+  "testimonials": {
+    "title": "They also love <1>eureky.ai</1>",
+    "items": {
+      "1": {
+        "title": "Super recommended!",
+        "text": "It has helped me not to fail in my commitments and to stay on track towards my goals. I use it for everything, even to remind me to buy flowers. I'm achieving my goals like never before!",
+        "author": "@carlamartinez"
+      },
+      "2": {
+        "title": "Super recommended!",
+        "text": "It has helped me not to fail in my commitments and to stay on track towards my goals. I use it for everything, even to remind me to buy flowers. I'm achieving my goals like never before!",
+        "author": "@lucartv"
+      },
+      "3": {
+        "title": "Super recommended!",
+        "text": "It has helped me not to fail in my commitments and to stay on track towards my goals. I use it for everything, even to remind me to buy flowers. I'm achieving my goals like never before!",
+        "author": "@fabriclavo"
+      }
+    }
+  },
+  "faq": {
+    "title": "Have questions?",
+    "items": {
+      "1": {
+        "question": "What is Eureky.ai and how does it help me achieve my goals?",
+        "answer": "Eureky.ai is your personal productivity assistant that helps you organize your tasks, set reminders and achieve your goals efficiently."
+      },
+      "2": {
+        "question": "Can I schedule recurring reminders?",
+        "answer": "Yes, you can schedule daily, weekly or monthly recurring reminders according to your needs."
+      },
+      "3": {
+        "question": "What unique features does Eureky.ai have?",
+        "answer": "Eureky.ai offers features like voice capture, image analysis, calendar synchronization, AI copilot and much more."
+      },
+      "4": {
+        "question": "Is my information secure?",
+        "answer": "Yes, your information is completely secure. We use end-to-end encryption and never share your data with third parties."
+      }
+    }
+  },
+  "footer": {
+    "contact": "contact@eureky.ia",
+    "copyright": "© {{year}} Eureky",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "facebook": "#",
+    "instagram": "#"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "Our web address is:",
+    "comments": {
+      "title": "Comments",
+      "p1": "When visitors leave comments on the site, we collect the data displayed in the comment form, as well as the visitor's IP address and browser user agent string to aid spam detection.",
+      "p2": "An anonymous string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The privacy policy for the Gravatar service is available here: https://automattic.com/privacy/. After approval of your comment, your profile image is visible to the public in the context of your comment."
+    },
+    "media": {
+      "title": "Media",
+      "p1": "If you upload images to the site, you should avoid uploading images with location data (GPS EXIF) included. Visitors to the website can download and extract any location data from images on the website."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "p1": "If you leave a comment on our site you can choose to save your name, email address and website in cookies. This is for your convenience, so you don't have to fill in your details again when you leave another comment. These cookies will last for one year.",
+      "p2": "If you have an account and log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is deleted when you close your browser.",
+      "p3": "When you log in, we will also set several cookies to store your login information and screen display options. The login cookies last for two days, and the display options cookies last for one year. If you select \"Remember me\", your login will last for two weeks. If you log out of your account, your access cookies will be deleted.",
+      "p4": "If you edit or publish an article, an additional cookie will be stored in your browser. This cookie does not include personal data and simply indicates the ID of the article you have just edited. It expires after 1 day."
+    },
+    "embeddedContent": {
+      "title": "Embedded content from other websites",
+      "p1": "Articles on this site may include embedded content (e.g., videos, images, articles, etc.). Embedded content from other websites behaves in exactly the same way as if the visitor had visited the other website.",
+      "p2": "These sites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged into that site."
+    },
+    "sharing": {
+      "title": "With whom we share your information",
+      "p1": "If you request a password reset, your IP address will be included in the reset email."
+    },
+    "retention": {
+      "title": "How long we keep your information",
+      "p1": "If you leave a comment, the comment and its metadata are retained indefinitely. This is so that we can recognize and approve successive comments automatically, rather than keeping them in a moderation queue.",
+      "p2": "For users who register on our site (if any), we also store the personal information they provide in their user profile. All users can view, edit or delete their personal information at any time (except that they cannot change their user name). Site administrators can also view and edit that information."
+    },
+    "rights": {
+      "title": "What rights do you have over your data",
+      "p1": "If you have an account or have left comments on this site, you may request to receive an export file of the personal data we hold about you, including any data you have provided to us. You may also request that we delete any personal data we hold about you. This does not include any data that we are required to retain for administrative, legal or security purposes."
+    },
+    "dataSent": {
+      "title": "Where your data is sent",
+      "p1": "Visitor comments may be reviewed by an automatic spam detection service."
+    }
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "intro": "This website is owned and operated by EUREKY AI LLC. A Delaware Limited Liability Company. Throughout the site, the terms \"we\", \"us\" and \"our\" refer to EUREKY AI LLC. This website, including all information, tools, and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies, and notices stated here. By visiting our site and/ or purchasing something from us, you engage in our \"Service\" and agree to be bound by the following terms and conditions (\"Terms of Service\", \"Terms\"), including those additional terms and conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users who are browsers, vendors, customers, merchants, and/ or contributors of content. Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service. Any new features or tools which are added to the current store shall also be subject to the Terms of Service. You can review the most current version of the Terms of Service at any time on this page. We reserve the right to update, change or replace any part of these Terms of Service by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the website following the posting of any changes constitutes acceptance of those changes.",
+    "section1": {
+      "title": "SECTION 1 – ONLINE STORE TERMS",
+      "content": "By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site. You may not use our products for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws). You must not transmit any worms or viruses or any code of a destructive nature. A breach or violation of any of the Terms will result in an immediate termination of your Services."
+    },
+    "section2": {
+      "title": "SECTION 2 – GENERAL CONDITIONS",
+      "content": "We reserve the right to refuse service to anyone for any reason at any time. You understand that your content (not including credit card information), may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to the technical requirements of connecting networks or devices. Credit card information is always encrypted during transfer over networks. You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service or any contact on the website through which the service is provided, without express written permission by us. The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms."
+    },
+    "contactEmail": "contacto@eureky.ia",
+    "contactPrompt": "Questions about the Terms of Service should be sent to us at:"
+  },
+  "next7Days": {
+    "title": "Next 7 Days",
+    "subtitle": "Weekly view of your reminders",
+    "startFromToday": "Start from today",
+    "startFromMonday": "Start from Monday",
+    "noReminders": "No reminders for this day",
+    "today": "Today",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "overdueReminders": "Overdue Reminders"
+  }
+}
