@@ -1,8 +1,15 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 class ApiClient {
-  constructor(baseURL = API_BASE_URL) {
-    this.baseURL = baseURL;
+  constructor(baseURL) {
+    // In development, use the vite proxy to avoid CORS issues
+    // The vite proxy is configured to forward /api/* to https://dev-api.eureky.ai/*
+    if (import.meta.env.DEV) {
+      this.baseURL = '/api'; // Use vite proxy in development
+    } else {
+      // In production, use the provided base URL or environment variable
+      this.baseURL = baseURL || API_BASE_URL || '';
+    }
   }
 
   // Handle 401 unauthorized responses
@@ -22,12 +29,21 @@ class ApiClient {
     // Get auth token from localStorage
     const token = localStorage.getItem('authToken');
 
+    // Prepare headers
+    const headers = {
+      'Content-Type': 'application/json',
+      ...options.headers,
+    };
+
+    // Only add Authorization header if token exists and is valid
+    if (token && token.trim()) {
+      // Ensure token doesn't already have "Bearer " prefix
+      const cleanToken = token.startsWith('Bearer ') ? token.replace(/^Bearer\s+/, '') : token;
+      headers['Authorization'] = `Bearer ${cleanToken}`;
+    }
+
     const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        ...(token && { 'Authorization': `Bearer ${token}` }),
-        ...options.headers,
-      },
+      headers,
       mode: 'cors',
       credentials: 'omit',
       ...options,

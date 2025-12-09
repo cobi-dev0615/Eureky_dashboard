@@ -35,9 +35,9 @@ const Dashboard = () => {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto h-full pb-20 lg:pb-0">
-        <div className="h-screen overflow-auto">
-          <div className={`mx-auto lg:p-6 ${activeSection === 'proximos-7' ? 'max-w-full h-full' : 'max-w-4xl'
+      <main className="flex-1 overflow-y-auto pb-20 lg:pb-0 min-w-[370px]">
+        <div className="overflow-auto">
+          <div className={`mx-auto lg:p-6 ${activeSection !== 'mi-dia' ? 'max-w-full' : 'max-w-4xl'
             }`}>
             {/* Mobile Header */}
             <div className="lg:hidden relative">

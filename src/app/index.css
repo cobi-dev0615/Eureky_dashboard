@@ -225,3 +225,26 @@ All colors MUST be HSL.
   scrollbar-width: thin;
   scrollbar-color: #1C273E transparent;
 }
+
+.tasks-card-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tasks-card-scrollbar::-webkit-scrollbar-track {
+  background: #0F1521;
+  border-radius: 4px;
+}
+
+.tasks-card-scrollbar::-webkit-scrollbar-thumb {
+  background: #444358;
+  border-radius: 4px;
+}
+
+.tasks-card-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #55566a;
+}
+
+.tasks-card-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #444358 #0F1521;
+}

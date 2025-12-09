@@ -15,7 +15,7 @@ export const MobileNav = ({ activeSection, onSectionChange }) => {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-sidebar rounded-tl-[16px] rounded-tr-[16px] lg:hidden z-50">
+    <nav className="fixed bottom-0 left-0 right-0 bg-sidebar rounded-tl-[16px] rounded-tr-[16px] lg:hidden z-50 ">
       <div className="flex items-center justify-center gap-6 px-[30px] py-4">
         {sections.map((section) => {
           const isActive = activeSection === section.id;
