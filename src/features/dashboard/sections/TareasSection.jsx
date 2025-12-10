@@ -98,7 +98,6 @@ export const TareasSection = () => {
     const tomorrow = startOfTomorrow();
     const tomorrowEnd = endOfTomorrow();
     const upcomingEnd = addDays(today, 30); // Next 30 days for "Próximos"
-    console.log(today, tomorrow, tomorrowEnd, upcomingEnd);
 
 
     const hoy = [];
@@ -199,15 +198,15 @@ export const TareasSection = () => {
           )}
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-[16px] font-medium tracking-[0.5px] text-foreground mb-0.5" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-            {listName}
-          </p>
-          <p className={cn(
-            "text-[10px] font-normal",
+        <p className={cn(
+            "text-[16px] font-medium tracking-[0.5px] text-foreground mb-0.5",
             item.isCompleted && (isLight ? "line-through text-[#6B6B80]" : "line-through text-[#444358]")
           )}
             style={{ fontFamily: "'DM Sans', sans-serif" }}>
             {item.content || item.title}
+          </p>
+          <p className="text-[10px] font-normal " style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            {listName}
           </p>
         </div>
         {!item.isCompleted ? (<DropdownMenu>
