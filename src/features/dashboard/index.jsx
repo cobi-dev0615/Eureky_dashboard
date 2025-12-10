@@ -3,6 +3,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { MobileNav } from "@/components/MobileNav";
 import { Button } from "@/components/ui/button";
 import { MoreOptionsIcon } from "@/components/MoreOptionsIcon";
+import MoreOptionsIconWhite from "@/assets/icons/more-options-icon-white.svg";
 import UnionIcon from "@/assets/icons/Union.svg";
 import EurekyLogo from "@/assets/icons/Union (1).svg";
 import { MiDiaSection } from "./sections/MiDiaSection";
@@ -19,9 +20,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import SoporteIcon from "@/assets/icons/life-buoy-01.svg";
 import AjustesIcon from "@/assets/icons/settings-01.svg";
+import { useTheme } from "@/shared/contexts/AppContext";
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState("mi-dia");
+  const { theme } = useTheme();
 
 
   return (
@@ -56,8 +59,29 @@ const Dashboard = () => {
                 {/* Right: More Options */}
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="icon" className="flex-shrink-0 w-5 h-5">
-                      <MoreOptionsIcon size={20} className="w-5 h-5 text-white" />
+                    <Button 
+                      variant="ghost" 
+                      size="icon" 
+                      className="flex-shrink-0 w-5 h-5"
+                      
+                    >
+                      {theme === "dark" ? (
+                        <img 
+                          src={MoreOptionsIconWhite} 
+                          alt="" 
+                          width={20} 
+                          height={20} 
+                          className="w-5 h-5"
+                        />
+                      ) : (
+                        <MoreOptionsIcon 
+                          size={20} 
+                          className="w-5 h-5" 
+                          style={{
+                            filter: "brightness(0) saturate(100%)",
+                          }}
+                        />
+                      )}
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-[131px] p-0 bg-card rounded-[8px] border-0 shadow-[0px_4px_4px_-1px_rgba(12,12,13,0.1),0px_4px_4px_-1px_rgba(12,12,13,0.05)]" sideOffset={8}>

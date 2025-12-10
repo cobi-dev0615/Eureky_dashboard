@@ -13,11 +13,13 @@ import { CheckCircleOutline } from "./CheckCircleOutline";
 import { CheckIcon } from "./CheckIcon";
 import { useAddItemToDefaultList, useAddItemToList } from "@/features/lists/hooks/useListItemsQuery";
 import { useLists } from "@/features/lists/hooks/useListsQuery";
+import { useTheme } from "@/shared/contexts/AppContext";
 
 export const AddTask = ({ listId = null }) => {
   const [taskTitle, setTaskTitle] = useState("");
   const [selectedListId, setSelectedListId] = useState(listId);
   const [listPopoverOpen, setListPopoverOpen] = useState(false);
+  const { theme } = useTheme();
 
   const { data: lists = [], isLoading: isLoadingLists } = useLists({
     status: 'ACTIVE',
@@ -70,7 +72,7 @@ export const AddTask = ({ listId = null }) => {
 
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 lg:left-[280px] pb-2 pt-2 lg:pb-8 mt-8 z-40 pointer-events-none">
+    <div className="fixed bottom-0 left-0 right-0 lg:left-[305px] pb-2 pt-2 lg:pb-8 mt-8 z-40 pointer-events-none">
       <div className="max-w-4xl mx-auto px-6 lg:px-6 pointer-events-auto">
         <div className="bg-card rounded-[100px] h-[64px] flex items-center px-8 mb-20 lg:mb-0">
           <div className="flex items-center gap-4 flex-1">
@@ -87,7 +89,12 @@ export const AddTask = ({ listId = null }) => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-[40px] w-[40px] flex-shrink-0 rounded-[69px] bg-[#1C273E] hover:bg-[#1C273E]/80 p-0 cursor-pointer"
+                  className={cn(
+                    "h-[40px] w-[40px] flex-shrink-0 rounded-[69px] p-0 cursor-pointer",
+                    theme === "light" 
+                      ? "bg-white hover:bg-white/80" 
+                      : "bg-[#1C273E] hover:bg-[#1C273E]/80"
+                  )}
                 >
                   <List className="w-5 h-5 text-foreground" />
                 </Button>

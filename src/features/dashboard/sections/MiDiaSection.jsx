@@ -38,7 +38,7 @@ export const MiDiaSection = () => {
         <TaskList />
       </div>
 
-      <div className="lg:hidden fixed bottom-[150px] left-0 right-0 flex gap-2 px-6 overflow-x-auto bg-background pb-2 z-30">
+      <div className="flex flex-wrap justify-center items-center lg:hidden fixed bottom-[150px] left-0 right-0 flex gap-2 px-6 overflow-x-auto bg-background pb-2 z-30">
         {["Personal", "Trabajo", "Freelance"].map((filter) => (
           <button
             key={filter}

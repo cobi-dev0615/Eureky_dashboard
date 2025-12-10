@@ -19,7 +19,7 @@ export const ThemeSwitcher = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="hidden md:block fixed top-4 right-4 z-50 p-3 rounded-md transition-all duration-200 hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2"
+      className="hidden lg:block fixed top-4 right-4 z-50 p-3 rounded-md transition-all duration-200 hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2"
       style={{
         backgroundColor: currentStyles.backgroundColor,
         color: currentStyles.color,

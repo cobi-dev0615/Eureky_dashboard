@@ -5,6 +5,7 @@ import { Check, Plus, MoreVertical, X, ChevronDown, ChevronUp } from 'lucide-rea
 import { cn } from '@/lib/utils';
 import { startOfToday, startOfTomorrow, endOfTomorrow, addDays, isSameDay, isAfter, isBefore } from 'date-fns';
 import { Button } from '@/components/ui/button';
+import { useTheme } from '@/shared/contexts/AppContext';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,6 +20,8 @@ import { AnimatePresence } from 'framer-motion';
 import { toast } from 'sonner';
 
 export const TareasSection = () => {
+  const { theme } = useTheme();
+  
   // Fetch all incomplete tasks
   const { data: allItems = [], isLoading } = useAllUserItems({
     isCompleted: false,
@@ -94,8 +97,6 @@ export const TareasSection = () => {
       }
 
       const scheduledDate = new Date(item.scheduledAt);
-      console.log(item);
-      console.log(scheduledDate);
 
       if (isSameDay(scheduledDate, today)) {
         hoy.push(item);
@@ -152,23 +153,33 @@ export const TareasSection = () => {
 
   const TaskItem = ({ item }) => {
     const listName = getListName(item);
+    const isLight = theme === "light";
+    
     return (
       <div
         className={cn(
           "flex items-center gap-3 py-3 transition-colors cursor-pointer",
           item.isCompleted && "opacity-60",
-          item.isCompleted ? "text-[#312E52]" : "text-white",
+          item.isCompleted 
+            ? isLight ? "text-[#6B6B80]" : "text-[#312E52]"
+            : isLight ? "text-[#050912]" : "text-white",
         )}
       >
         <div
           onClick={(e) => handleToggle(item.id, e)}
-          className={cn("w-4 h-4 rounded-full border-[1px] border-foreground flex items-center justify-center cursor-pointer flex-shrink-0",
-            item.isCompleted ? "border-[#312E52]" : "border-white",
-            item.isCompleted ? 'bg-[#312E52]' : 'bg-[#0F1521]',
+          className={cn("w-4 h-4 rounded-full border-[1px] flex items-center justify-center cursor-pointer flex-shrink-0",
+            item.isCompleted 
+              ? isLight ? "border-[#6B6B80] bg-[#6B6B80]" : "border-[#312E52] bg-[#312E52]"
+              : isLight ? "border-[#050912] bg-white" : "border-white bg-[#0F1521]",
           )}
           
         >
-          {item.isCompleted && <Check className="w-3 h-3 text-[#0F1521]" />}
+          {item.isCompleted && (
+            <Check className={cn(
+              "w-3 h-3",
+              isLight ? "text-white" : "text-[#0F1521]"
+            )} />
+          )}
         </div>
         <div className="flex-1 min-w-0">
           <p className="text-[16px] font-medium tracking-[0.5px] text-foreground mb-0.5" style={{ fontFamily: "'DM Sans', sans-serif" }}>
@@ -176,7 +187,7 @@ export const TareasSection = () => {
           </p>
           <p className={cn(
             "text-[10px] font-normal",
-            item.isCompleted && "line-through text-[#444358]"
+            item.isCompleted && (isLight ? "line-through text-[#6B6B80]" : "line-through text-[#444358]")
           )}
             style={{ fontFamily: "'DM Sans', sans-serif" }}>
             {item.content || item.title}
@@ -271,7 +282,7 @@ export const TareasSection = () => {
           fontWeight: 500,
           lineHeight: '150%',
           letterSpacing: '-0.2px', // -1% of 20px
-          color: '#FFFFFF',
+          color: theme === "light" ? '#050912' : '#FFFFFF',
           opacity: 1,
         }}
       >
@@ -280,25 +291,28 @@ export const TareasSection = () => {
 
       {/* Categories Card */}
       <div 
-        className="bg-card rounded-[8px] border border-[#34324a] mb-8 mt-[24px] sm:w-[497px] sm:mt-[16px] overflow-y-auto tasks-card-scrollbar"
+        className="bg-card rounded-[8px] border mb-8 mt-[24px] sm:w-[497px] sm:mt-[16px] overflow-y-auto tasks-card-scrollbar"
         style={{
           opacity: 1,
-          borderColor: '#0F1521',
-          backgroundColor: '#0F1521',
+          borderColor: theme === "light" ? '#E5E5E5' : '#34324a',
+          backgroundColor: theme === "light" ? '#FFFFFF' : '#0F1521',
           padding: '16px 17px 16px 17px',
           position: 'relative',
           maxHeight: 'calc(100vh - 230px)',
         }}
       >
         <div className='absolute top-8 right-8 block lg:hidden'>
-          <Plus className='w-[16px] h-[16px] flex-shrink-0' />
+          <Plus 
+            className='w-[16px] h-[16px] flex-shrink-0' 
+            style={{ color: theme === "light" ? '#050912' : '#FFFFFF' }}
+          />
         </div>
         <CategorySection title="Hoy" tasks={categorizedTasks.hoy} />
-        <div className="h-px bg-[#34324a] " />
+        <div className={cn("h-px", theme === "light" ? "bg-[#E5E5E5]" : "bg-[#34324a]")} />
         <CategorySection title="Mañana" tasks={categorizedTasks.manana} />
-        <div className="h-px bg-[#34324a] " />
+        <div className={cn("h-px", theme === "light" ? "bg-[#E5E5E5]" : "bg-[#34324a]")} />
         <CategorySection title="Próximos" tasks={categorizedTasks.proximos} />
-        <div className="h-px bg-[#34324a] " />
+        <div className={cn("h-px", theme === "light" ? "bg-[#E5E5E5]" : "bg-[#34324a]")} />
         <CategorySection title="Algún día" tasks={categorizedTasks.algunDia} />
 
         {/* Add Task Input */}
@@ -306,20 +320,22 @@ export const TareasSection = () => {
           <div 
             className="flex items-center gap-2 px-4 py-2 rounded-[10px] border"
             style={{
-              borderColor: '#444358',
+              borderColor: theme === "light" ? '#D1D1D1' : '#444358',
               backgroundColor: 'transparent',
             }}
           >
-            <Plus className="w-[16px] h-[16px] flex-shrink-0" style={{ color: '#444358' }} />
+            <Plus className="w-[16px] h-[16px] flex-shrink-0" style={{ color: theme === "light" ? '#6B6B80' : '#444358' }} />
             <input
               type="text"
               value={newTaskContent}
               onChange={(e) => setNewTaskContent(e.target.value)}
               placeholder="Agregar tarea"
-              className="flex-1 bg-transparent border-0 outline-none text-[16px] leading-[1.5] font-normal placeholder:text-[#444358] focus-visible:ring-0"
+              className={cn("flex-1 bg-transparent border-0 outline-none text-[16px] leading-[1.5] font-normal focus-visible:ring-0",
+                theme === "light" ? "placeholder:text-[#6B6B80]" : "placeholder:text-[#444358]"
+              )}
               style={{ 
                 fontFamily: "'DM Sans', sans-serif",
-                color: '#444358'
+                color: theme === "light" ? '#050912' : '#444358'
               }}
               disabled={addItemMutation.isPending}
             />
