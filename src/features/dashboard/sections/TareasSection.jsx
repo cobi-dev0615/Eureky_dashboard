@@ -1,11 +1,12 @@
 import { useMemo, useState } from 'react';
-import { useAllUserItems, useAddItemToDefaultList, useToggleItemCompletion, useDeleteItem, useUpdateItem } from '@/features/lists/hooks/useListItemsQuery';
+import { useAllUserItems, useAddItemToDefaultList, useToggleItemCompletion, useDeleteItem, useUpdateItem, listItemsKeys } from '@/features/lists/hooks/useListItemsQuery';
 import { useLists } from '@/features/lists/hooks/useListsQuery';
 import { Check, Plus, MoreVertical, X, ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { startOfToday, startOfTomorrow, endOfTomorrow, addDays, isSameDay, isAfter, isBefore } from 'date-fns';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/shared/contexts/AppContext';
+import { useQueryClient } from '@tanstack/react-query';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,6 +22,7 @@ import { toast } from 'sonner';
 
 export const TareasSection = () => {
   const { theme } = useTheme();
+  const queryClient = useQueryClient();
   
   // Fetch all incomplete tasks
   const { data: allItems = [], isLoading } = useAllUserItems({
@@ -58,14 +60,29 @@ export const TareasSection = () => {
     e.preventDefault();
     if (!newTaskContent.trim()) return;
 
+    // Set scheduledAt to current time (same as createdAt)
+    const now = new Date().toISOString();
+    
     addItemMutation.mutate(
-      { content: newTaskContent.trim() },
+      { 
+        content: newTaskContent.trim(),
+        scheduledAt: now
+      },
       {
         onSuccess: () => {
           setNewTaskContent('');
+          // Explicitly invalidate queries to refresh categories
+          queryClient.invalidateQueries({ queryKey: listItemsKeys.all });
         }
       }
     );
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleAddTask(e);
+    }
   };
 
   // Get list name for an item
@@ -329,7 +346,9 @@ export const TareasSection = () => {
               type="text"
               value={newTaskContent}
               onChange={(e) => setNewTaskContent(e.target.value)}
+              onKeyDown={handleKeyDown}
               placeholder="Agregar tarea"
+              required
               className={cn("flex-1 bg-transparent border-0 outline-none text-[16px] leading-[1.5] font-normal focus-visible:ring-0",
                 theme === "light" ? "placeholder:text-[#6B6B80]" : "placeholder:text-[#444358]"
               )}
